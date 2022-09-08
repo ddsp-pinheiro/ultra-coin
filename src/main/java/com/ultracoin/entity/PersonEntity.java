@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -31,6 +32,8 @@ public class PersonEntity {
     private int areaCode;
     @Column(name = "num_phone_number")
     private Long phoneNumber;
+    @Column(name = "dat_birth_date")
+    private Date birthDate ;
     @Column
     private AddressEntity address;
 

@@ -4,6 +4,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,6 +33,8 @@ public class PersonEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="idt_person")
     private AddressEntity address;
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="idt_account")
+    private List<AccountEntity> userAccounts;
 
 }

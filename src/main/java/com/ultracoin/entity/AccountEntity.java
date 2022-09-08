@@ -21,11 +21,13 @@ public class AccountEntity {
     private Long id;
     @NotNull
     @Column(name = "num_balance")
-    private BigDecimal balance;
+    private BigDecimal totalBalance;
     @NotNull
     @Column(name = "num_number_account")
     private Long numberAccount;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="idt_account")
     private List<TransitionEntity> userTransactions;
+    @Column(name = "idt_person")
+    private Long idPerson;
 }

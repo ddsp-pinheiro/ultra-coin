@@ -1,11 +1,11 @@
-package com.ultracoin.entity;
+package com.ultracoin.model;
 
 import lombok.*;
 
 
 @Getter
 @Setter
-public class UserLoginEntity {
+public class UserLogin {
 
     private Long id;
     private String email;

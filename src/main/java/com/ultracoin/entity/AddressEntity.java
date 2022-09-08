@@ -3,10 +3,7 @@ package com.ultracoin.entity;
 import com.ultracoin.States;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -28,4 +25,6 @@ public class AddressEntity {
     private String postalCode;
     @Column(name = "des_country")
     private String country;
+    @Column(name = "idt_person")
+    private Long id;
 }

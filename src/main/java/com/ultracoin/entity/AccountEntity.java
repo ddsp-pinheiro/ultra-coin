@@ -2,12 +2,11 @@ package com.ultracoin.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,4 +25,7 @@ public class AccountEntity {
     @NotNull
     @Column(name = "num_number_account")
     private Long numberAccount;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="idt_account")
+    private List<TransitionEntity> userTransactions;
 }

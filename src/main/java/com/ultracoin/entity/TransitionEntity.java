@@ -28,4 +28,6 @@ public class TransitionEntity {
     @NotNull
     @Column(name = "dat_date_create")
     private LocalDateTime date;
+    @Column(name = "idt_account")
+    private Long idAccount;
 }

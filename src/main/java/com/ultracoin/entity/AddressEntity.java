@@ -2,7 +2,6 @@ package com.ultracoin.entity;
 
 import com.ultracoin.States;
 import lombok.*;
-
 import javax.persistence.*;
 
 @Getter
@@ -12,6 +11,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity(name = "ADDRESS_ENTITY")
 public class AddressEntity {
+    @Id
+    @Column(name = "idt_address")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(name = "des_street")
     private String street;
     @Column(name = "num_number")
@@ -26,5 +29,5 @@ public class AddressEntity {
     @Column(name = "des_country")
     private String country;
     @Column(name = "idt_person")
-    private Long id;
+    private Long idPerson;
 }

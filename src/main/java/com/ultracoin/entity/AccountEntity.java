@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -16,6 +15,7 @@ import java.util.List;
 @Entity(name = "ACCOUNT_ENTITY")
 public class AccountEntity {
 
+    @Id
     @Column(name = "idt_account")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

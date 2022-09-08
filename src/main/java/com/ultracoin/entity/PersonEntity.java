@@ -1,9 +1,6 @@
 package com.ultracoin.entity;
 
-
 import lombok.*;
-import org.apache.tomcat.jni.Address;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -16,6 +13,7 @@ import java.util.Date;
 @Entity(name = "PERSON_ENTITY")
 public class PersonEntity {
 
+    @Id
     @Column(name = "idt_person")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

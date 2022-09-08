@@ -15,23 +15,24 @@ import javax.validation.constraints.NotNull;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "person_entity")
+@Entity(name = "PERSON_ENTITY")
 public class PersonEntity {
 
     @Column(name = "idt_person")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
     @NotNull
+    @Column(name = "num_tax_id")
+    private Long taxId;
+    @NotNull
+    @Column(name = "nam_full_name")
     private String name;
-    @Column
+    @Column(name = "num_area_code")
     private int areaCode;
-    @Column
+    @Column(name = "num_phone_number")
     private Long phoneNumber;
     @Column
     private AddressEntity address;
-    @Column
-    @NotNull
-    private Long cpf;
+
 
 }

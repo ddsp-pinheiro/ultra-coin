@@ -1,5 +1,6 @@
 package com.ultracoin.entity;
 
+import com.ultracoin.States;
 import lombok.*;
 
 import javax.persistence.Column;

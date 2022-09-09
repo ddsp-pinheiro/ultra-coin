@@ -1,9 +1,7 @@
 package com.ultracoin.request;
 
-import com.ultracoin.entity.AddressEntity;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +13,5 @@ public class PersonRequest {
     private int areaCode;
     private Long phoneNumber;
     private Date birthDate;
-    private AddressRequest address;
     private List<AccountRequest> userAccounts;
 }

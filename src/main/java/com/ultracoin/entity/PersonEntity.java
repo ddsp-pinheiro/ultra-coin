@@ -2,7 +2,7 @@ package com.ultracoin.entity;
 
 import lombok.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,15 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @Entity(name = "PERSON_ENTITY")
 public class PersonEntity {
-
     @Id
     @Column(name = "idt_person")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    @Column(name = "num_tax_id")
+    @Column(name = "num_taxId")
     private Long taxId;
-    @NotNull
     @Column(name = "nam_full_name")
     private String name;
     @Column(name = "num_area_code")
@@ -32,9 +29,11 @@ public class PersonEntity {
     private Date birthDate ;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="idt_person")
-    private AddressEntity address;
+    @Builder.Default
+    private AddressEntity address = new AddressEntity();
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="idt_account")
-    private List<AccountEntity> userAccounts;
+    @JoinColumn(name="idt_person")
+    @Builder.Default
+    private List<AccountEntity> userAccounts = new ArrayList<>();
 
 }

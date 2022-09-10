@@ -33,7 +33,6 @@ public class PersonEntity {
     private AddressEntity address = new AddressEntity();
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="idt_person")
-    @Builder.Default
-    private List<AccountEntity> userAccounts = new ArrayList<>();
+    private List<AccountEntity> userAccounts;
 
 }

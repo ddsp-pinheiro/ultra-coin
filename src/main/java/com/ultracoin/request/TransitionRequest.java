@@ -18,5 +18,4 @@ public class TransitionRequest {
     private BigDecimal value;
     private String description;
     private LocalDateTime date;
-    private Long idAccount;
 }

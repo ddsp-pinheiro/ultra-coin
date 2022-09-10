@@ -1,5 +1,6 @@
 package com.ultracoin.response;
 
+import com.ultracoin.AccountType;
 import com.ultracoin.entity.TransitionEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,8 +15,9 @@ import java.util.List;
 public class AccountResponse {
 
     private Long id;
+    private AccountType accountType;
     private BigDecimal totalBalance;
-    private Long numberAccount;
+    private int accountNumber;
     private List<TransitionResponse> userTransactions;
     private Long idPerson;
 }

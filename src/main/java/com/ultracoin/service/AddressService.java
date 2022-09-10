@@ -23,9 +23,7 @@ public class AddressService {
 //        if (addressRepository.findById(addressEntity.getId()).isPresent()){
 //            throw new DuplicateKeyException("This card already exists");
 //        }
-        var addressOwner = personService.getById(id);
-        addressEntity.setIdPerson(addressOwner.getId());
-        addressOwner.setAddress(addressEntity);
+        addressEntity.setIdPerson(id);
         return addressRepository.save(addressEntity);
     }
 

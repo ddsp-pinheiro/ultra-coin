@@ -23,7 +23,7 @@ public class PersonController {
     @ResponseStatus(HttpStatus.CREATED)
     public PersonResponse post(@Valid @RequestBody PersonRequest personRequest) {
         PersonEntity entity = personService.addUser(personMapper.toEntity(personRequest));
-        return personMapper.toResponse(entity);
+        return personMapper.toResponseToPost(entity);
     }
 
     @GetMapping("/{id}")

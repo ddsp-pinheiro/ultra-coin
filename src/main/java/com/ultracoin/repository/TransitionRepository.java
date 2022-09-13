@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface TransactionRepository extends JpaRepository<TransitionEntity, Long> {
+public interface TransitionRepository extends JpaRepository<TransitionEntity, Long> {
     Optional<TransitionEntity> findById(Long id);
 }

@@ -7,6 +7,8 @@ import com.ultracoin.response.PersonResponse;
 import com.ultracoin.response.TransitionResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -34,6 +36,15 @@ public class PersonMapper {
                 .birthDate(personEntity.getBirthDate())
                 .address(addressMapper.toResponse(personEntity.getAddress()))
                 .build();
+    }
+
+    public PersonEntity toEntity(PersonEntity personEntitySaved, PersonRequest personRequest) {
+        personEntitySaved.setAreaCode(Optional.ofNullable(personRequest.getAreaCode()).orElse(personEntitySaved.getAreaCode()));
+        personEntitySaved.setBirthDate(Optional.ofNullable(personRequest.getBirthDate()).orElse(personEntitySaved.getBirthDate()));
+        personEntitySaved.setName(Optional.ofNullable(personRequest.getName()).orElse(personEntitySaved.getName()));
+        personEntitySaved.setTaxId(Optional.ofNullable(personRequest.getTaxId()).orElse(personEntitySaved.getTaxId()));
+        personEntitySaved.setPhoneNumber(Optional.ofNullable(personRequest.getPhoneNumber()).orElse(personEntitySaved.getPhoneNumber()));
+        return personEntitySaved;
     }
 
     public PersonResponse toResponse(PersonEntity personEntity) {

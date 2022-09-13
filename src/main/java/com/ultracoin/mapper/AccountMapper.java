@@ -1,7 +1,6 @@
 package com.ultracoin.mapper;
 
 import com.ultracoin.entity.AccountEntity;
-import com.ultracoin.entity.TransitionEntity;
 import com.ultracoin.request.AccountRequest;
 import com.ultracoin.response.AccountResponse;
 import com.ultracoin.response.TransitionResponse;
@@ -28,6 +27,7 @@ public class AccountMapper {
                         .date(transitionResponse.getDate())
                         .value(transitionResponse.getValue())
                         .description(transitionResponse.getDescription())
+                        .type(transitionResponse.getType())
                         .idAccount(transitionResponse.getIdAccount())
                         .build()).collect(Collectors.toList()))
                 .build();

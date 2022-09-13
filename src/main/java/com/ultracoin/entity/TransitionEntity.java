@@ -1,5 +1,6 @@
 package com.ultracoin.entity;
 
+import com.ultracoin.TransitionType;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,6 +19,9 @@ public class TransitionEntity {
     @Column(name = "idt_transition")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    @Column(name = "des_type")
+    private TransitionType type;
     @NotNull
     @Column(name = "num_value")
     private BigDecimal value;

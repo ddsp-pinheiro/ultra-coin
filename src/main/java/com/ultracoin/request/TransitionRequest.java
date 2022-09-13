@@ -1,5 +1,6 @@
 package com.ultracoin.request;
 
+import com.ultracoin.TransitionType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,5 +13,6 @@ public class TransitionRequest {
 
     private BigDecimal value;
     private String description;
-    private LocalDateTime date;
+    private TransitionType type;
+
 }

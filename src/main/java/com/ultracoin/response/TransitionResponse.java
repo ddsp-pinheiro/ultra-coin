@@ -1,5 +1,6 @@
 package com.ultracoin.response;
 
+import com.ultracoin.TransitionType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 public class TransitionResponse {
     private Long id;
     private BigDecimal value;
+    private TransitionType type;
     private String description;
     private LocalDateTime date;
     private Long idAccount;

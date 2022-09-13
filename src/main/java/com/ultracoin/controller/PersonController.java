@@ -1,5 +1,6 @@
 package com.ultracoin.controller;
 
+import com.ultracoin.entity.AddressEntity;
 import com.ultracoin.entity.PersonEntity;
 import com.ultracoin.mapper.PersonMapper;
 import com.ultracoin.request.PersonRequest;
@@ -35,7 +36,7 @@ public class PersonController {
 
     @GetMapping("/taxId/{taxId}")
     @ResponseStatus(HttpStatus.OK)
-    public PersonResponse getTaxId(@PathVariable Long taxId) {
+    public PersonResponse getTaxId(@PathVariable String taxId) {
         PersonEntity entity = personService.getByTaxId(taxId);
         return personMapper.toResponse(entity);
     }

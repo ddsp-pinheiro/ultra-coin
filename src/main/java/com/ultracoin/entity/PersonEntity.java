@@ -1,8 +1,9 @@
 package com.ultracoin.entity;
 
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,8 @@ public class PersonEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "num_taxId")
-    private Long taxId;
+    @CPF(message = "Tax id invalid")
+    private String taxId;
     @Column(name = "nam_full_name")
     private String name;
     @Column(name = "num_area_code")
@@ -34,5 +36,6 @@ public class PersonEntity {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="idt_person")
     private List<AccountEntity> userAccounts;
+
 
 }

@@ -14,7 +14,7 @@ import java.util.List;
 public class PersonResponse {
 
     private Long id;
-    private Long taxId;
+    private String taxId;
     private String name;
     private int areaCode;
     private Long phoneNumber;

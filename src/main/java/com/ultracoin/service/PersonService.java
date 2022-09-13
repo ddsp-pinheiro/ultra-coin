@@ -29,10 +29,6 @@ public class PersonService {
 //                throw new DuplicateKeyException("This user already exists");
 //            }
         }
-
-        if (Boolean.FALSE.equals(verifyTaxId(personEntity.getTaxId()))) {
-            throw new RuntimeException("The tax id entered is invalid");
-        }
         return savePersonInDatabase(personEntity);
     }
 
@@ -45,21 +41,11 @@ public class PersonService {
         }
     }
 
-    public PersonEntity addAddressToUser(Long id, AddressEntity addressEntity) {
-        PersonEntity entity = getById(id);
-        entity.setAddress(addressEntity);
-        return personRepository.save(entity);
-    }
-
-    private Boolean verifyTaxId(Long taxId) {
-        return taxId > 10000000000L && taxId < 99999999999L;
-    }
-
     public PersonEntity getById(Long id) {
         return personRepository.findById(id).orElseThrow(() -> new NotFoundException(ID_NOT_FOUND));
     }
 
-    public PersonEntity getByTaxId(Long taxId){
+    public PersonEntity getByTaxId(String taxId){
         return personRepository.findByTaxId(taxId).orElseThrow(() -> new NotFoundException(CPF_NOT_FOUND));
     }
 }

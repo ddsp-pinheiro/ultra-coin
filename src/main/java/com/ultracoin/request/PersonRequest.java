@@ -8,7 +8,7 @@ import java.util.List;
 @Getter
 @Setter
 public class PersonRequest {
-    private Long taxId;
+    private String taxId;
     private String name;
     private int areaCode;
     private Long phoneNumber;

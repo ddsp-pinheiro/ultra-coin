@@ -5,8 +5,7 @@ An easy-to-use Fintech with a focus on personal accounts!
 
 ## Get started
 
-#### ⌛coming soon...
-
+We use Java 11.
 
 ## API Documentation.
 

@@ -1,7 +1,6 @@
 package com.ultracoin.response;
 
-import com.ultracoin.AccountType;
-import com.ultracoin.entity.TransitionEntity;
+import com.ultracoin.enums.AccountType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

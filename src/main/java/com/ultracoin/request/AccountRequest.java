@@ -1,6 +1,6 @@
 package com.ultracoin.request;
 
-import com.ultracoin.AccountType;
+import com.ultracoin.enums.AccountType;
 import lombok.Getter;
 import lombok.Setter;
 

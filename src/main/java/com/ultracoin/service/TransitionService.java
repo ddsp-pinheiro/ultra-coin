@@ -4,11 +4,14 @@ import com.ultracoin.entity.TransitionEntity;
 import com.ultracoin.exception.NotFoundException;
 import com.ultracoin.repository.TransitionRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class TransitionService {
     private static final String ID_NOT_FOUND = "Id not found";
@@ -23,7 +26,11 @@ public class TransitionService {
                 break;
 
             case WITHDRAW:
-                account.setTotalBalance(account.getTotalBalance().subtract(transitionEntity.getValue()));
+                if(account.getTotalBalance().compareTo( transitionEntity.getValue()) == 1) {
+                    account.setTotalBalance(account.getTotalBalance().subtract(transitionEntity.getValue()));
+                } else {
+                    throw new RuntimeException("Insufficient balance");
+                }
                 break;
 
             case TRANSFER:

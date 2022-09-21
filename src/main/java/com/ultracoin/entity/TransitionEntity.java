@@ -1,6 +1,6 @@
 package com.ultracoin.entity;
 
-import com.ultracoin.TransitionType;
+import com.ultracoin.enums.TransitionType;
 import lombok.*;
 
 import javax.persistence.*;

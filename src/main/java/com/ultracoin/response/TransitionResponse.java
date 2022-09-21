@@ -1,6 +1,6 @@
 package com.ultracoin.response;
 
-import com.ultracoin.TransitionType;
+import com.ultracoin.enums.TransitionType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

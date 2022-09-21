@@ -1,6 +1,5 @@
 package com.ultracoin.response;
-
-import com.ultracoin.States;
+import com.ultracoin.enums.States;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

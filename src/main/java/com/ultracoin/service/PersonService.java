@@ -1,13 +1,10 @@
 package com.ultracoin.service;
 
-import com.ultracoin.entity.AddressEntity;
 import com.ultracoin.entity.PersonEntity;
 import com.ultracoin.exception.NotFoundException;
-import com.ultracoin.repository.AddressRepository;
 import com.ultracoin.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
 

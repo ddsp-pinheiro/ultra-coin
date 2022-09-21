@@ -32,7 +32,7 @@ public class AddressContoller {
         AddressEntity entity = addressService.getById(id);
         return addressMapper.toResponse(entity);
     }
-    @GetMapping("/{idPerson}")
+    @GetMapping("user/{idPerson}")
     @ResponseStatus(HttpStatus.OK)
     public AddressResponse getAddressByPersonId(@PathVariable Long idPerson){
         AddressEntity entity = addressService.getByIdPerson(idPerson);

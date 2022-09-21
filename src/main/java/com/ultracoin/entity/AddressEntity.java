@@ -1,6 +1,6 @@
 package com.ultracoin.entity;
 
-import com.ultracoin.States;
+import com.ultracoin.enums.States;
 import lombok.*;
 import javax.persistence.*;
 

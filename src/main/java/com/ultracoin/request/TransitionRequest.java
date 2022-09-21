@@ -1,11 +1,10 @@
 package com.ultracoin.request;
 
-import com.ultracoin.TransitionType;
+import com.ultracoin.enums.TransitionType;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter

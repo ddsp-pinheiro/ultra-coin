@@ -1,6 +1,6 @@
 package com.ultracoin.entity;
 
-import com.ultracoin.AccountType;
+import com.ultracoin.enums.AccountType;
 import lombok.*;
 import javax.persistence.*;
 import java.math.BigDecimal;

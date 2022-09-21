@@ -19,6 +19,8 @@ public class PersonMapper {
 
     public PersonEntity toEntity(PersonRequest personRequest) {
         return PersonEntity.builder()
+                .email(personRequest.getEmail())
+                .password(personRequest.getPassword())
                 .name(personRequest.getName())
                 .taxId(personRequest.getTaxId())
                 .areaCode(personRequest.getAreaCode())

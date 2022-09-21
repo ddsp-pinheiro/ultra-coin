@@ -1,16 +1,18 @@
 package com.ultracoin.controller;
 
-import com.ultracoin.entity.AddressEntity;
 import com.ultracoin.entity.PersonEntity;
 import com.ultracoin.mapper.PersonMapper;
+import com.ultracoin.model.UserLogin;
 import com.ultracoin.request.PersonRequest;
 import com.ultracoin.response.PersonResponse;
 import com.ultracoin.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/person")
@@ -19,6 +21,21 @@ public class PersonController {
 
     private final PersonService personService;
     private final PersonMapper personMapper;
+
+    @PostMapping("/login")
+    public ResponseEntity<UserLogin> login(@RequestBody Optional<UserLogin> userLogin) {
+        return personService.authentication(userLogin)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<PersonEntity> registerPerson(@Valid @RequestBody PersonEntity personEntity) {
+        return personService.register(personEntity)
+                .map(resp -> ResponseEntity.status(HttpStatus.CREATED).body(resp))
+                .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

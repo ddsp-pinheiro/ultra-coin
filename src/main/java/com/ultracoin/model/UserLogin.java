@@ -9,6 +9,6 @@ public class UserLogin {
 
     private Long id;
     private String email;
-    private String senha;
+    private String password;
     private String token;
 }

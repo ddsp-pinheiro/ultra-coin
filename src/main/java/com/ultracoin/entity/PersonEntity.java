@@ -2,8 +2,13 @@ package com.ultracoin.entity;
 
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +23,11 @@ public class PersonEntity {
     @Column(name = "idt_person")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "des_password")
+    private String password;
+    @Column(name = "des_email")
+    @Email
+    private String email;
     @Column(name = "num_taxId")
     @CPF(message = "Tax id invalid")
     private String taxId;
@@ -36,6 +46,4 @@ public class PersonEntity {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="idt_person")
     private List<AccountEntity> userAccounts;
-
-
 }

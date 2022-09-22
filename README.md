@@ -95,6 +95,8 @@ We use Java 11.
 
                                                                                                                                                            
 #### For more documentation
+![image](https://user-images.githubusercontent.com/77706397/191659695-77a416f1-dfd5-4435-9d4a-63a91eae3d32.png)
+
 
 [Class diagram](https://drive.google.com/file/d/1WT1T3viu3__jsikGlKdZSKiraaKA266D/view?usp=sharing)
 

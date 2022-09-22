@@ -7,6 +7,8 @@ import com.ultracoin.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,8 +24,19 @@ public class PersonService {
     private static final String CPF_NOT_FOUND = "Account number not found";
     private static final String ID_NOT_FOUND = "Person not found";
     private final PersonRepository personRepository;
+    private final KafkaTemplate<String,String> kafkaTemplate;
+
+    @Value("${spring.kafka.topic.name}")
+    private String topic;
+
+    public void sendMessage(String email){
+        log.info("Email -> {}",email);
+        this.kafkaTemplate.send(topic,email);
+
+    }
 
     public Optional<PersonEntity> register(PersonEntity personEntity) {
+        sendMessage(personEntity.getEmail());
 
         if (personRepository.findByEmail(personEntity.getEmail()).isPresent()) {
             return Optional.empty();

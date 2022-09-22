@@ -10,7 +10,15 @@ spring:
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    topic:
+      name: ultra_coin_topic
+
   server:
-    port: 8080
+    port: 8081
 
 
